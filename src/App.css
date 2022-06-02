@@ -1,0 +1,29 @@
+.squareParent {
+  display: flex;
+  flex-wrap: wrap;
+  height: 32px;
+  width: 280px;
+  background-color: black;
+}
+
+.square {
+  width: 30px;
+  height: 30px;
+  background-color: green;
+  color: white;
+  margin: 2px;
+  margin-right: 0px;
+  margin-bottom: 0px;
+  text-align: center;
+  line-height: 30px;
+  user-select: none;
+}
+
+.white {
+  background-color: white;
+  color: black;
+}
+.black {
+  background-color: black;
+  color: white;
+}
