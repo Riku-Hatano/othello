@@ -34,6 +34,7 @@ class Board extends React.Component<Props, State> {
             <Squares
             id={props}
             id2={props2}
+            id3={props3}
             info={this.state}
             info2={this.state.isWhite}
             info3={this}
@@ -43,7 +44,7 @@ class Board extends React.Component<Props, State> {
     }
     render() {
         return(
-            <div id="squareGrandParent">
+            <div>
                 <div className="squareParent">
                     {this.squareMaker(0, 0, this.state.squares[0][0])}
                     {this.squareMaker(0, 1, this.state.squares[0][1])}

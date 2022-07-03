@@ -2,15 +2,14 @@
   display: flex;
   flex-wrap: wrap;
   height: 32px;
-  width: 280px;
-  background-color: black;
+  width: 258px;
+  background-color: green;
 }
 
 .square {
   width: 30px;
   height: 30px;
   background-color: green;
-  margin: 2px;
   margin-right: 0px;
   margin-bottom: 0px;
   text-align: center;
@@ -19,10 +18,12 @@
 }
 
 .squareColorWhite {
-  color: black;
+  border-radius: 15px;
+  color: white;
   background-color: white 
 }
 .squareColorBlack {
-  color: white;
+  border-radius: 15px;
+  color: black;
   background-color: black
 }
