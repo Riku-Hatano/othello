@@ -1,5 +1,3 @@
-import React from "react";
-
 const HandleChange = (props: number, props2: number, info: any, info2: boolean, info3: any): void => {
         //以下同じマスのクリック回避
         if (info.squares[props][props2] === "W" || info.squares[props][props2] === "B") {
@@ -499,13 +497,34 @@ const HandleChange = (props: number, props2: number, info: any, info2: boolean, 
         isBottomLeft = true;
         isUpLeft = true;
 
-
+        // const element: HTMLDivElement = document.getElementsByClassName("squareParent") as unknown as HTMLDivElement
+        // const element2 = document.getElementById("squareParent")
+        // const elementChild = document.getElementById("22")
+        // console.log(elementChild)
+        // console.log(element2)
+        // console.log(element)
         const all = info.squares.slice();
         all[props][props2] = info2 ? "W" : "B"
         info3.setState({
             squares: all,
             isWhite: !info2
         })
+        for (let i = 0 ; i < 8 ; i ++) {
+            for (let j = 0 ; j < 8 ; j ++) {
+                if (info.squares[i][j] === "W") {
+                    let changedCell = document.getElementById(String(i) + String(j))
+                    changedCell?.classList.remove("squareColorBlack")
+                    changedCell?.classList.add("squareColorWhite")
+                } else if (info.squares[i][j] === "B") {
+                    let changedCell = document.getElementById(String(i) + String(j))
+                    changedCell?.classList.remove("squareColorWhite")
+                    changedCell?.classList.add("squareColorBlack")
+                    
+                }
+            }
+        }
     }
 
 export default HandleChange;
+
+

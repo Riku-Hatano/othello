@@ -10,7 +10,6 @@
   width: 30px;
   height: 30px;
   background-color: green;
-  color: white;
   margin: 2px;
   margin-right: 0px;
   margin-bottom: 0px;
@@ -19,11 +18,11 @@
   user-select: none;
 }
 
-.white {
-  background-color: white;
+.squareColorWhite {
   color: black;
+  background-color: white 
 }
-.black {
-  background-color: black;
+.squareColorBlack {
   color: white;
+  background-color: black
 }
