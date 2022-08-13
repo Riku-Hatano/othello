@@ -18,9 +18,10 @@
   user-select: none;
 }
 .inSquare {
-  padding: 1px;
-  width: 28px;
-  height: 28px;
+  margin: auto;
+  margin-top: 2px;
+  width: 26px;
+  height: 26px;
   background-color: green;
 }
 .squareColorWhite {
