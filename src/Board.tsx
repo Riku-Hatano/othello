@@ -2,13 +2,17 @@ import React from "react"
 import Squares from "./Squares";
 import "./App.css";
 import HandleChange from "./HandleChange";
+import { next } from "./Store"
+import { back } from "./Store"
 
 type Props = {
 }
 type State = {
     squares: any
     isWhite: boolean
+    his: any
 }
+
 
 class Board extends React.Component<Props, State> {
     constructor(props: Props) {
@@ -26,6 +30,7 @@ class Board extends React.Component<Props, State> {
                 
             ],
             isWhite: true,
+            his: 0
         }
     }
     
@@ -254,6 +259,8 @@ class Board extends React.Component<Props, State> {
                     </div>
                 </div>
                 <div>next turn: {this.state.isWhite ? "W" : "B"}</div>
+                <button onClick={() => next(this)}>next</button>
+                <button onClick={back}>back</button>
             </div>
         )
     }
