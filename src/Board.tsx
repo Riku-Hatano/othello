@@ -10,6 +10,7 @@ type Props = {
 type State = {
     squares: any
     isWhite: boolean
+    history: any
     his: any
 }
 
@@ -29,6 +30,7 @@ class Board extends React.Component<Props, State> {
                 [" ", " ", " ", " ", " ", " ", " ", " ", " "]
                 
             ],
+            history: [],
             isWhite: true,
             his: 0
         }

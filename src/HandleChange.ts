@@ -505,10 +505,14 @@ const HandleChange = (props: number, props2: number, info: any, info2: boolean, 
         // console.log(element)
         const all = info.squares.slice();
         all[props][props2] = info2 ? "W" : "B"
+        const allHistory = info.history
+        allHistory.push(all)
         info3.setState({
             squares: all,
-            isWhite: !info2
+            isWhite: !info2,
+            history: allHistory
         })
+        console.log(info.history)
         for (let i = 0 ; i < 8 ; i ++) {
             for (let j = 0 ; j < 8 ; j ++) {
                 if (info.squares[i][j] === "W") {
