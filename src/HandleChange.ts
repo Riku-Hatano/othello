@@ -505,28 +505,32 @@ const HandleChange = (props: number, props2: number, info: any, info2: boolean, 
         // console.log(element)
         const all = info.squares.slice();
         all[props][props2] = info2 ? "W" : "B"
-        const allHistory = info.history
-        allHistory.push(all)
+        const history = info.history
+        history.push(all)
+        console.log(history)
+        const historyCount = info.historyCount + 1
         info3.setState({
             squares: all,
             isWhite: !info2,
-            history: allHistory
+            history: history,
+            historyCount: historyCount
         })
         console.log(info.history)
-        for (let i = 0 ; i < 8 ; i ++) {
-            for (let j = 0 ; j < 8 ; j ++) {
-                if (info.squares[i][j] === "W") {
-                    let changedCell = document.getElementById(String(i) + String(j))
-                    changedCell?.classList.remove("squareColorBlack")
-                    changedCell?.classList.add("squareColorWhite")
-                } else if (info.squares[i][j] === "B") {
-                    let changedCell = document.getElementById(String(i) + String(j))
-                    changedCell?.classList.remove("squareColorWhite")
-                    changedCell?.classList.add("squareColorBlack")
+        console.log(info.historyCount)
+        // for (let i = 0 ; i < 8 ; i ++) {
+        //     for (let j = 0 ; j < 8 ; j ++) {
+        //         if (info.squares[i][j] === "W") {
+        //             let changedCell = document.getElementById(String(i) + String(j))
+        //             changedCell?.classList.remove("squareColorBlack")
+        //             changedCell?.classList.add("squareColorWhite")
+        //         } else if (info.squares[i][j] === "B") {
+        //             let changedCell = document.getElementById(String(i) + String(j))
+        //             changedCell?.classList.remove("squareColorWhite")
+        //             changedCell?.classList.add("squareColorBlack")
                     
-                }
-            }
-        }
+        //         }
+        //     }
+        // }
     }
 
 export default HandleChange;
