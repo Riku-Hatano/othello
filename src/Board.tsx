@@ -11,7 +11,7 @@ type State = {
     squares: any
     isWhite: boolean
     history: any
-    his: any
+    historyCount: any,
 }
 
 
@@ -30,9 +30,20 @@ class Board extends React.Component<Props, State> {
                 [" ", " ", " ", " ", " ", " ", " ", " ", " "]
                 
             ],
-            history: [],
+            history: [
+                [
+                    [" ", " ", " ", " ", " ", " ", " ", " ", " "],
+                    [" ", " ", " ", " ", " ", " ", " ", " ", " "],
+                    [" ", " ", " ", " ", " ", " ", " ", " ", " "],
+                    [" ", " ", " ", "W", "B", " ", " ", " "],
+                    [" ", " ", " ", "B", "W", " ", " ", " "],
+                    [" ", " ", " ", " ", " ", " ", " ", " ", " "],
+                    [" ", " ", " ", " ", " ", " ", " ", " ", " "],
+                    [" ", " ", " ", " ", " ", " ", " ", " ", " "]
+                ]
+            ],
+            historyCount: 0,
             isWhite: true,
-            his: 0
         }
     }
     
@@ -262,7 +273,7 @@ class Board extends React.Component<Props, State> {
                 </div>
                 <div>next turn: {this.state.isWhite ? "W" : "B"}</div>
                 <button onClick={() => next(this)}>next</button>
-                <button onClick={back}>back</button>
+                <button onClick={() => back(this)}>back</button>
             </div>
         )
     }
