@@ -497,15 +497,12 @@ const HandleChange = (props: number, props2: number, info: any, info2: boolean, 
         isBottomLeft = true;
         isUpLeft = true;
 
-        // const element: HTMLDivElement = document.getElementsByClassName("squareParent") as unknown as HTMLDivElement
-        // const element2 = document.getElementById("squareParent")
-        // const elementChild = document.getElementById("22")
-        // console.log(elementChild)
-        // console.log(element2)
-        // console.log(element)
+       
         const all = info.squares.slice();
         all[props][props2] = info2 ? "W" : "B"
         const history = info.history
+        console.log(all)
+        console.log(history)
         history.push(all)
         console.log(history)
         const historyCount = info.historyCount + 1
