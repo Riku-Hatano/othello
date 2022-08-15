@@ -40,7 +40,7 @@ class Board extends React.Component<Props, State> {
                     [" ", " ", " ", " ", " ", " ", " ", " ", " "],
                     [" ", " ", " ", " ", " ", " ", " ", " ", " "],
                     [" ", " ", " ", " ", " ", " ", " ", " ", " "]
-                ]
+                ],
             ],
             historyCount: 0,
             isWhite: true,
