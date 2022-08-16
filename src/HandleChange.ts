@@ -4,7 +4,6 @@ const HandleChange = (props: number, props2: number, info: any, info2: boolean, 
             // alert("info is not allowed by: " + info[props][props2]);
             return;
         }
-
         //以下上方向のマス返し
         let count: number = 0;
         let up: any[] = new Array(props + 1);
@@ -18,7 +17,7 @@ const HandleChange = (props: number, props2: number, info: any, info2: boolean, 
             count++;
         }
         count = 0;
-        console.log("up: " + up);
+        // console.log("up: " + up);
 
         stringed = up.join("");
         
@@ -75,7 +74,7 @@ const HandleChange = (props: number, props2: number, info: any, info2: boolean, 
             count++;
         }
         count = 0;
-        console.log("down: " + down);
+        // console.log("down: " + down);
 
         stringed = down.join("");
         
@@ -129,7 +128,7 @@ const HandleChange = (props: number, props2: number, info: any, info2: boolean, 
             count++;
         }
         count = 0;
-        console.log("rigtht: " + right);
+        // console.log("rigtht: " + right);
 
         stringed = right.join("");
         
@@ -184,7 +183,7 @@ const HandleChange = (props: number, props2: number, info: any, info2: boolean, 
             count++;
         }
         count = 0;
-        console.log("left: " + left);
+        // console.log("left: " + left);
 
         stringed = left.join("");
         
@@ -248,7 +247,7 @@ const HandleChange = (props: number, props2: number, info: any, info2: boolean, 
             count++;
         }
         count = 0;
-        console.log("upRight: " + upRight);
+        // console.log("upRight: " + upRight);
 
         stringed = upRight.join("");
         
@@ -310,7 +309,7 @@ const HandleChange = (props: number, props2: number, info: any, info2: boolean, 
            count++;
         }
         count = 0;
-        console.log("bottomRight: " + bottomRight);
+        // console.log("bottomRight: " + bottomRight);
 
         stringed = bottomRight.join("");
         
@@ -372,7 +371,7 @@ const HandleChange = (props: number, props2: number, info: any, info2: boolean, 
            count++;
         }
         count = 0;
-        console.log("bottomLeft: " + bottomLeft);
+        // console.log("bottomLeft: " + bottomLeft);
 
         stringed = bottomLeft.join("");
         
@@ -434,7 +433,7 @@ const HandleChange = (props: number, props2: number, info: any, info2: boolean, 
            count++;
         }
         count = 0;
-        console.log("upLeft: " + upLeft);
+        // console.log("upLeft: " + upLeft);
 
         stringed = upLeft.join("");
         
@@ -500,34 +499,36 @@ const HandleChange = (props: number, props2: number, info: any, info2: boolean, 
        
         const all = info.squares.slice();
         all[props][props2] = info2 ? "W" : "B"
+
         const history = info.history
         console.log(all)
         console.log(history)
         history.push(all)
         console.log(history)
         const historyCount = info.historyCount + 1
+
         info3.setState({
             squares: all,
             isWhite: !info2,
             history: history,
             historyCount: historyCount
         })
+        
         console.log(info.history)
-        console.log(info.historyCount)
-        // for (let i = 0 ; i < 8 ; i ++) {
-        //     for (let j = 0 ; j < 8 ; j ++) {
-        //         if (info.squares[i][j] === "W") {
-        //             let changedCell = document.getElementById(String(i) + String(j))
-        //             changedCell?.classList.remove("squareColorBlack")
-        //             changedCell?.classList.add("squareColorWhite")
-        //         } else if (info.squares[i][j] === "B") {
-        //             let changedCell = document.getElementById(String(i) + String(j))
-        //             changedCell?.classList.remove("squareColorWhite")
-        //             changedCell?.classList.add("squareColorBlack")
+        for (let i = 0 ; i < 8 ; i ++) {
+            for (let j = 0 ; j < 8 ; j ++) {
+                if (info.squares[i][j] === "W") {
+                    let changedCell = document.getElementById(String(i) + String(j))
+                    changedCell?.classList.remove("squareColorBlack")
+                    changedCell?.classList.add("squareColorWhite")
+                } else if (info.squares[i][j] === "B") {
+                    let changedCell = document.getElementById(String(i) + String(j))
+                    changedCell?.classList.remove("squareColorWhite")
+                    changedCell?.classList.add("squareColorBlack")
                     
-        //         }
-        //     }
-        // }
+                }
+            }
+        }
     }
 
 export default HandleChange;
