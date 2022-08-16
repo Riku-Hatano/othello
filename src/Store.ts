@@ -28,15 +28,16 @@ export const back = (props: any) => {
         return;
     }
     const historyCount = props.state.historyCount - 1
-    const prev = props.state.history[historyCount]
+    const back = props.state.history[historyCount]
     const history = props.state.history
     history.pop()
     props.setState({
         isWhite: !props.state.isWhite,
-        squares: prev,
+        squares: back,
         historyCount: historyCount,
         history: history
     })
+    console.log(props.state.history)
     for (let i = 0 ; i < 8 ; i ++) {
         for (let j = 0 ; j < 8 ; j ++) {
             if (props.state.squares[i][j] === "W") {
