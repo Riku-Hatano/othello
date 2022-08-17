@@ -30,23 +30,11 @@ class Board extends React.Component<Props, State> {
                 [" ", " ", " ", " ", " ", " ", " ", " "]
                 
             ],
-            history: [
-                [
-                    [" ", " ", " ", " ", " ", " ", " ", " "],
-                    [" ", " ", " ", " ", " ", " ", " ", " "],
-                    [" ", " ", " ", " ", " ", " ", " ", " "],
-                    [" ", " ", " ", "W", "B", " ", " ", " "],
-                    [" ", " ", " ", "B", "W", " ", " ", " "],
-                    [" ", " ", " ", " ", " ", " ", " ", " "],
-                    [" ", " ", " ", " ", " ", " ", " ", " "],
-                    [" ", " ", " ", " ", " ", " ", " ", " "]
-                ],
-            ],
+            history: [],
             historyCount: 0,
             isWhite: true,
         }
     }
-    
     squareMaker(props: number, props2: number, props3: any): any {
         return(
             <Squares
