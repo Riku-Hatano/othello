@@ -1,7 +1,7 @@
 import React from "react"
 import Squares from "./Squares";
 import "./App.css";
-import HandleChange from "./HandleChange";
+import HandleChange from "./HandleChange2";
 import { next } from "./Store"
 import { back } from "./Store"
 
@@ -25,9 +25,9 @@ class Board extends React.Component<Props, State> {
                 [" ", " ", " ", " ", " ", " ", " ", " ", " "],
                 [" ", " ", " ", "W", "B", " ", " ", " "],
                 [" ", " ", " ", "B", "W", " ", " ", " "],
-                [" ", " ", " ", " ", " ", " ", " ", " ", " "],
-                [" ", " ", " ", " ", " ", " ", " ", " ", " "],
-                [" ", " ", " ", " ", " ", " ", " ", " ", " "]
+                [" ", " ", "B", "W", " ", " ", " ", " ", " "],
+                [" ", " ", "B", "W", " ", " ", " ", " ", " "],
+                [" ", " ", "W", " ", " ", " ", " ", " ", " "]
                 
             ],
             history: [
