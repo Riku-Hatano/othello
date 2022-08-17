@@ -21,9 +21,7 @@ const HandleChange = (props: number, props2: number, info: any, info2: boolean, 
                 forChangeCell.push(info.squares[i][row])
             }
             stringed = forChangeCell.join("")
-            console.log("下:" + stringed)
-            console.log(stringed.length)
-            if (stringed.indexOf("BW") !== -1 && stringed.indexOf("B") === 1) {
+            if (stringed.indexOf("BW") !== -1 && stringed.indexOf("B") === 1 && stringed.indexOf("B ") === -1 || stringed.indexOf("B ") > stringed.indexOf("W")) {
                 for (let i = 1 ; i < stringed.indexOf("BW") + 1; i++) {
                     changeCell.push(column + i + " " + row)
                 }
@@ -34,7 +32,7 @@ const HandleChange = (props: number, props2: number, info: any, info2: boolean, 
                 forChangeCell.push(info.squares[column][i])
             }
             stringed = forChangeCell.join("")
-            if (stringed.indexOf("BW") !== -1 && stringed.indexOf("B") === 1) {
+            if (stringed.indexOf("BW") !== -1 && stringed.indexOf("B") === 1 && stringed.indexOf("B ") === -1 || stringed.indexOf("B ") > stringed.indexOf("W")) {
                 for (let i = 1 ; i < stringed.indexOf("BW") + 1; i++) {
                     changeCell.push(props + " " + (row + i))
                 }
@@ -45,7 +43,7 @@ const HandleChange = (props: number, props2: number, info: any, info2: boolean, 
                 forChangeCell.push(info.squares[i][row])
             }
             stringed = forChangeCell.join("")
-            if (stringed.indexOf("BW") !== -1 && stringed.indexOf("B") === 1) {
+            if (stringed.indexOf("BW") !== -1 && stringed.indexOf("B") === 1 && stringed.indexOf("B ") === -1 || stringed.indexOf("B ") > stringed.indexOf("W")) {
                 for (let i = 1 ; i < stringed.indexOf("BW") + 1 ; i++) {
                     changeCell.push((column - i) + " " + row)
                 }
@@ -56,7 +54,7 @@ const HandleChange = (props: number, props2: number, info: any, info2: boolean, 
                 forChangeCell.push(info.squares[column][i])
             }
             stringed = forChangeCell.join("")
-            if (stringed.indexOf("BW") !== -1 && stringed.indexOf("B") === 1) {
+            if (stringed.indexOf("BW") !== -1 && stringed.indexOf("B") === 1 && stringed.indexOf("B ") === -1 || stringed.indexOf("B ") > stringed.indexOf("W")) {
                 for (let i = 1 ; i < stringed.indexOf("BW") + 1 ; i++) {
                     changeCell.push(column + " " + (row - i))
                 }
@@ -71,19 +69,9 @@ const HandleChange = (props: number, props2: number, info: any, info2: boolean, 
                 diagonalCounter = 7 - row + 1
             }
             for (let i = 0 ; i < diagonalCounter ; i++) {
-                // if (i === 0) {
-                //     forChangeCell.push("W")
-                // } else {
-                //     forChangeCell.push(info.squares[column + i][row + i])
-                // }
                 forChangeCell.push(info.squares[column + i][row + i])
-                if (info.squares[column + i][row + i] === " ") {
-                    empty++
-                }
             }
             stringed = forChangeCell.join("")
-            console.log(stringed)
-            console.log(stringed.indexOf("W"))
             if (stringed.indexOf("BW") !== -1 && stringed.indexOf("B") === 1 && stringed.indexOf("B ") === -1 || stringed.indexOf("B ") > stringed.indexOf("W")) {
                 for (let i = 1 ; i < stringed.indexOf("BW") + 1 ; i++) {
                     changeCell.push((column + i) + " " + (row + i))
@@ -102,7 +90,7 @@ const HandleChange = (props: number, props2: number, info: any, info2: boolean, 
                 forChangeCell.push(info.squares[column + i][row - i])
             }
             stringed = forChangeCell.join("")
-            if (stringed.indexOf("BW") !== -1 && stringed.indexOf("B") === 1) {
+            if (stringed.indexOf("BW") !== -1 && stringed.indexOf("B") === 1 && stringed.indexOf("B ") === -1 || stringed.indexOf("B ") > stringed.indexOf("W")) {
                 for (let i = 1 ; i < stringed.indexOf("BW") + 1 ; i++) {
                     changeCell.push((column + i) + " " + (row - i))
                 }
@@ -120,7 +108,7 @@ const HandleChange = (props: number, props2: number, info: any, info2: boolean, 
                 forChangeCell.push(info.squares[column - i][row - i])
             }
             stringed = forChangeCell.join("")
-            if (stringed.indexOf("BW") !== -1 && stringed.indexOf("B") === 1) {
+            if (stringed.indexOf("BW") !== -1 && stringed.indexOf("B") === 1 && stringed.indexOf("B ") === -1 || stringed.indexOf("B ") > stringed.indexOf("W")) {
                 for (let i = 1 ; i < stringed.indexOf("BW") + 1 ; i++) {
                     changeCell.push((column - i) + " " + (row - i))
                 }
@@ -138,22 +126,20 @@ const HandleChange = (props: number, props2: number, info: any, info2: boolean, 
                 forChangeCell.push(info.squares[column - i][row + i])
             }
             stringed = forChangeCell.join("")
-            if (stringed.indexOf("BW") !== -1 && stringed.indexOf("B") === 1) {
+            if (stringed.indexOf("BW") !== -1 && stringed.indexOf("B") === 1 && stringed.indexOf("B ") === -1 || stringed.indexOf("B ") > stringed.indexOf("W")) {
                 for (let i = 1 ; i < stringed.indexOf("BW") + 1 ; i++) {
                     changeCell.push((column - i) + " " + (row + i))
                 }
             }
             forChangeCell = []
         } else {
-            //bwを逆転させる、後で書き直す
             //下がひっくり返るか
-            console.log("black")
             for (let i = column ; i < 8 ; i++) {
                 forChangeCell.push(info.squares[i][row])
             }
             stringed = forChangeCell.join("")
-            if (stringed.indexOf("BW") !== -1 && stringed.indexOf("B") === 1) {
-                for (let i = 1 ; i < stringed.indexOf("BW") + 1; i++) {
+            if (stringed.indexOf("WB") !== -1 && stringed.indexOf("W") === 1 && stringed.indexOf("W ") === -1 || stringed.indexOf("W ") > stringed.indexOf("B")) {
+                for (let i = 1 ; i < stringed.indexOf("WB") + 1; i++) {
                     changeCell.push(column + i + " " + row)
                 }
             }
@@ -163,8 +149,8 @@ const HandleChange = (props: number, props2: number, info: any, info2: boolean, 
                 forChangeCell.push(info.squares[column][i])
             }
             stringed = forChangeCell.join("")
-            if (stringed.indexOf("BW") !== -1 && stringed.indexOf("B") === 1) {
-                for (let i = 1 ; i < stringed.indexOf("BW") + 1; i++) {
+            if (stringed.indexOf("WB") !== -1 && stringed.indexOf("W") === 1 && stringed.indexOf("W ") === -1 || stringed.indexOf("W ") > stringed.indexOf("B")) {
+                for (let i = 1 ; i < stringed.indexOf("WB") + 1; i++) {
                     changeCell.push(props + " " + (row + i))
                 }
             }
@@ -174,8 +160,8 @@ const HandleChange = (props: number, props2: number, info: any, info2: boolean, 
                 forChangeCell.push(info.squares[i][row])
             }
             stringed = forChangeCell.join("")
-            if (stringed.indexOf("BW") !== -1 && stringed.indexOf("B") === 1) {
-                for (let i = 1 ; i < stringed.indexOf("BW") + 1 ; i++) {
+            if (stringed.indexOf("WB") !== -1 && stringed.indexOf("W") === 1 && stringed.indexOf("W ") === -1 || stringed.indexOf("W ") > stringed.indexOf("B")) {
+                for (let i = 1 ; i < stringed.indexOf("WB") + 1 ; i++) {
                     changeCell.push((column - i) + " " + row)
                 }
             }
@@ -185,8 +171,8 @@ const HandleChange = (props: number, props2: number, info: any, info2: boolean, 
                 forChangeCell.push(info.squares[column][i])
             }
             stringed = forChangeCell.join("")
-            if (stringed.indexOf("BW") !== -1 && stringed.indexOf("B") === 1) {
-                for (let i = 1 ; i < stringed.indexOf("BW") + 1 ; i++) {
+            if (stringed.indexOf("WB") !== -1 && stringed.indexOf("W") === 1 && stringed.indexOf("W ") === -1 || stringed.indexOf("W ") > stringed.indexOf("B")) {
+                for (let i = 1 ; i < stringed.indexOf("WB") + 1 ; i++) {
                     changeCell.push(column + " " + (row - i))
                 }
             }
@@ -203,8 +189,8 @@ const HandleChange = (props: number, props2: number, info: any, info2: boolean, 
                 forChangeCell.push(info.squares[column + i][row + i])
             }
             stringed = forChangeCell.join("")
-            if (stringed.indexOf("BW") !== -1 && stringed.indexOf("B") === 1 && stringed.indexOf(" ") !== -1) {
-                for (let i = 1 ; i < stringed.indexOf("BW") + 1 ; i++) {
+            if (stringed.indexOf("WB") !== -1 && stringed.indexOf("W") === 1 && stringed.indexOf("W ") === -1 || stringed.indexOf("W ") > stringed.indexOf("B")) {
+                for (let i = 1 ; i < stringed.indexOf("WB") + 1 ; i++) {
                     changeCell.push((column + i) + " " + (row + i))
                 }
             }
@@ -221,8 +207,8 @@ const HandleChange = (props: number, props2: number, info: any, info2: boolean, 
                 forChangeCell.push(info.squares[column + i][row - i])
             }
             stringed = forChangeCell.join("")
-            if (stringed.indexOf("BW") !== -1 && stringed.indexOf("B") === 1) {
-                for (let i = 1 ; i < stringed.indexOf("BW") + 1 ; i++) {
+            if (stringed.indexOf("WB") !== -1 && stringed.indexOf("W") === 1 && stringed.indexOf("W ") === -1 || stringed.indexOf("W ") > stringed.indexOf("B")) {
+                for (let i = 1 ; i < stringed.indexOf("WB") + 1 ; i++) {
                     changeCell.push((column + i) + " " + (row - i))
                 }
             }
@@ -239,8 +225,8 @@ const HandleChange = (props: number, props2: number, info: any, info2: boolean, 
                 forChangeCell.push(info.squares[column - i][row - i])
             }
             stringed = forChangeCell.join("")
-            if (stringed.indexOf("BW") !== -1 && stringed.indexOf("B") === 1) {
-                for (let i = 1 ; i < stringed.indexOf("BW") + 1 ; i++) {
+            if (stringed.indexOf("WB") !== -1 && stringed.indexOf("W") === 1 && stringed.indexOf("W ") === -1 || stringed.indexOf("W ") > stringed.indexOf("B")) {
+                for (let i = 1 ; i < stringed.indexOf("WB") + 1 ; i++) {
                     changeCell.push((column - i) + " " + (row - i))
                 }
             }
@@ -257,33 +243,40 @@ const HandleChange = (props: number, props2: number, info: any, info2: boolean, 
                 forChangeCell.push(info.squares[column - i][row + i])
             }
             stringed = forChangeCell.join("")
-            if (stringed.indexOf("BW") !== -1 && stringed.indexOf("B") === 1) {
-                for (let i = 1 ; i < stringed.indexOf("BW") + 1 ; i++) {
+            if (stringed.indexOf("WB") !== -1 && stringed.indexOf("W") === 1 && stringed.indexOf("W ") === -1 || stringed.indexOf("W ") > stringed.indexOf("B")) {
+                for (let i = 1 ; i < stringed.indexOf("WB") + 1 ; i++) {
                     changeCell.push((column - i) + " " + (row + i))
                 }
             }
             forChangeCell = []
-            console.log(changeCell)
         }
 
+        //bw共通
         if (changeCell.length === 0) {
             return;
         }
         const newSquares = info.squares.slice()
+        const history = info.history
         if (info.isWhite === true) {
             for (let i = 0 ; i < changeCell.length ; i++) {
                 newSquares[changeCell[i][0]][changeCell[i][2]] = "W"
             } 
+            newSquares[column][row] = "W"
         } else {
             for (let i = 0 ; i < changeCell.length ; i++) {
                 newSquares[changeCell[i][0]][changeCell[i][2]] = "B"
             } 
+            newSquares[column][row] = "B"
         }
+        history.push(newSquares)
+        console.log(history)
         info3.setState({
             squares: newSquares,
+            history: history,
             isWhite: !info2
         })
         changeCell = []
+        console.log(info.history)
     }
     cellChecker()
     
