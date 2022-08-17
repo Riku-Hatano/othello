@@ -8,34 +8,51 @@ const HandleChange = (props: number, props2: number, info: any, info2: boolean, 
     function cellChecker() {
         if (info.isWhite === true) {
             let stringed: string
-            //下に置けるかどうか
-            for (let i = props ; i < 8 ; i++) {
-                forChangeCell.push(info.squares[i][props2])
+            //下がひっくり返るか
+            for (let i = column ; i < 8 ; i++) {
+                forChangeCell.push(info.squares[i][row])
             }
             stringed = forChangeCell.join("")
             if (stringed.indexOf("BW") !== -1 && stringed.indexOf("B") === 1) {
                 for (let i = 1 ; i < stringed.indexOf("BW") + 1; i++) {
                     // changeCell.push(info.squares[Number(props) + i][props2])
-                    changeCell.push(column + i + " " + props2)
+                    changeCell.push(column + i + " " + row)
                 }
             }
-            console.log(forChangeCell)
-            console.log(changeCell)
             forChangeCell = []
-            //右に置けるかどうか
+            //右がひっくり返るか
             for (let i = props2 ; i < 8 ; i++) {
-                forChangeCell.push(info.squares[props][i])
+                forChangeCell.push(info.squares[column][i])
             }
             stringed = forChangeCell.join("")
             if (stringed.indexOf("BW") !== -1 && stringed.indexOf("B") === 1) {
                 for (let i = 1 ; i < stringed.indexOf("BW") + 1; i++) {
-                    console.log("done")
-                    console.log(props2 + i)
-                    // changeCell.push(info.squares[Number(props) + i][props2])
                     changeCell.push(props + " " + (row + i))
                 }
             }
-            console.log(forChangeCell)
+            forChangeCell = []
+            //上がひっくり返るか
+            for (let i = column ; i > -1 ; i--) {
+                forChangeCell.push(info.squares[i][row])
+            }
+            stringed = forChangeCell.join("")
+            if (stringed.indexOf("BW") !== -1 && stringed.indexOf("B") === 1) {
+                for (let i = 1 ; i < stringed.indexOf("BW") + 1 ; i++) {
+                    changeCell.push((column - i) + " " + row)
+                }
+            }
+            forChangeCell = []
+            //左がひっくり返るか
+            for (let i = row ; i > -1 ; i--) {
+                forChangeCell.push(info.squares[column][i])
+            }
+            stringed = forChangeCell.join("")
+            if (stringed.indexOf("BW") !== -1 && stringed.indexOf("B") === 1) {
+                for (let i = 1 ; i < stringed.indexOf("BW") + 1 ; i++) {
+                    changeCell.push(column + " " + (row - i))
+                }
+            }
+            forChangeCell = []
             console.log(changeCell)
         } else {
             console.log("black")
