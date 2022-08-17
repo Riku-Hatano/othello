@@ -1,4 +1,5 @@
 import { isStringTextContainingNode } from "typescript"
+import React, { useState } from "react"
 
 const HandleChange = (props: number, props2: number, info: any, info2: boolean, info3: any): void => {
     //石を置けるかどうかの判定
@@ -8,7 +9,6 @@ const HandleChange = (props: number, props2: number, info: any, info2: boolean, 
     const row = Number(props2)
     let diagonalCounter: any = 0
     let stringed: string
-    let empty: number = 0
 
     function cellChecker() {
         //例外の処理
@@ -251,12 +251,12 @@ const HandleChange = (props: number, props2: number, info: any, info2: boolean, 
             forChangeCell = []
         }
 
-        //bw共通
+
+        //実際にマスを反転させる処理。changeCellに反転させるマスの番地が入っている。
         if (changeCell.length === 0) {
             return;
         }
         const newSquares = info.squares.slice()
-        const history = info.history
         if (info.isWhite === true) {
             for (let i = 0 ; i < changeCell.length ; i++) {
                 newSquares[changeCell[i][0]][changeCell[i][2]] = "W"
@@ -268,15 +268,16 @@ const HandleChange = (props: number, props2: number, info: any, info2: boolean, 
             } 
             newSquares[column][row] = "B"
         }
+        const history = info.history.slice()
         history.push(newSquares)
-        console.log(history)
         info3.setState({
             squares: newSquares,
             history: history,
             isWhite: !info2
         })
+        
         changeCell = []
-        console.log(info.history)
+        console.log(history)
     }
     cellChecker()
     
