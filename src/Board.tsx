@@ -270,7 +270,7 @@ class Board extends React.Component<Props, State> {
                     </div>
                 </div>
                 <div>next turn: {this.state.isWhite ? "W" : "B"}</div>
-                <button onClick={() => next(this)}>next</button>
+                {/* <button onClick={() => next(this)}>next</button> */}
                 <button onClick={() => back(this)}>back</button>
             </div>
         )
