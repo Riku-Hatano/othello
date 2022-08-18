@@ -256,7 +256,7 @@ const HandleChange = (props: number, props2: number, info: any, info2: boolean, 
         if (changeCell.length === 0) {
             return;
         }
-        const newSquares = info.squares.slice()
+        const newSquares = JSON.parse(JSON.stringify(info.squares))
         if (info.isWhite === true) {
             for (let i = 0 ; i < changeCell.length ; i++) {
                 newSquares[changeCell[i][0]][changeCell[i][2]] = "W"
@@ -270,19 +270,20 @@ const HandleChange = (props: number, props2: number, info: any, info2: boolean, 
         }
         const history = info.history.slice()
         history.push(newSquares)
+        const historyCount = info.historyCount + 1
+
         info3.setState({
             squares: newSquares,
             history: history,
+            historyCount: historyCount,
             isWhite: !info2
         })
         
         changeCell = []
         console.log(history)
+        console.log(historyCount)
     }
     cellChecker()
-    
-
-   
 }
 export default HandleChange;
 
