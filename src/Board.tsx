@@ -2,8 +2,9 @@ import React from "react"
 import Squares from "./Squares";
 import "./App.css";
 import HandleChange from "./HandleChange2";
-import { next } from "./Store"
-import { back } from "./Store"
+import { next, back } from "./Store"
+import { putBlack, putWhite, completeEdit } from "./EditBoard"
+import { editableInputTypes } from "@testing-library/user-event/dist/utils";
 
 type Props = {
 }
@@ -272,6 +273,9 @@ class Board extends React.Component<Props, State> {
                 <div>next turn: {this.state.isWhite ? "W" : "B"}</div>
                 {/* <button onClick={() => next(this)}>next</button> */}
                 <button onClick={() => back(this)}>back</button>
+                <button onClick={() => putBlack(this)}>putBlack</button>
+                <button onClick={() => putWhite(this)}>putWhite</button>
+                <button onClick={() => completeEdit(this)}>completeEdit</button>
             </div>
         )
     }
