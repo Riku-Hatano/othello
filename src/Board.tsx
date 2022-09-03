@@ -2,8 +2,8 @@ import React from "react"
 import Squares from "./Squares";
 import "./App.css";
 import HandleChange from "./HandleChange2";
-import { next, back } from "./Store"
-import { putBlack, putWhite, completeEdit } from "./EditBoard"
+import { next, back } from "./Back"
+import { putBlack, putWhite, completeEdit, clearCells } from "./EditBoard"
 import { editableInputTypes } from "@testing-library/user-event/dist/utils";
 
 type Props = {
@@ -11,8 +11,11 @@ type Props = {
 type State = {
     squares: any
     isWhite: boolean
+    isEdit: number //0...編集モードではない、1...黒を自由におくモード、2...白を自由に置くモード
+    isCleaned: boolean
     history: any
-    historyCount: any,
+    historyIsWhite: any
+    historyCount: any
 }
 
 
@@ -42,8 +45,13 @@ class Board extends React.Component<Props, State> {
                     [" ", " ", " ", " ", " ", " ", " ", " "]  
                 ]
             ],
+            historyIsWhite: [
+                true
+            ],
             historyCount: 0,
             isWhite: true,
+            isEdit: 0,
+            isCleaned: false
         }
     }
     squareMaker(props: number, props2: number, props3: any): any {
@@ -271,11 +279,12 @@ class Board extends React.Component<Props, State> {
                     </div>
                 </div>
                 <div>next turn: {this.state.isWhite ? "W" : "B"}</div>
-                <button onClick={() => next(this)}>next</button>
+                {/* <button onClick={() => next(this)}>next</button> */}
                 <button onClick={() => back(this)}>back</button>
                 <button onClick={() => putBlack(this)}>putBlack</button>
                 <button onClick={() => putWhite(this)}>putWhite</button>
                 <button onClick={() => completeEdit(this)}>completeEdit</button>
+                <button onClick={() => clearCells(this)}>clearCells</button>
             </div>
         )
     }

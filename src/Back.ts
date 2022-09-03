@@ -20,11 +20,15 @@ export const back = (props: any) => {
     const history = props.state.history
     history.pop()
     props.setState({
-        isWhite: !props.state.isWhite,
         squares: back,
         historyCount: historyCount,
         history: history
     })
+    if (props.state.isEdit === true) {
+        props.setState({
+            isWhite: !props.state.isWhite
+        })
+    }
     console.log(props.state.history)
     for (let i = 0 ; i < 8 ; i ++) {
         for (let j = 0 ; j < 8 ; j ++) {
