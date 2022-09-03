@@ -1,16 +1,24 @@
-import { isStringTextContainingNode } from "typescript"
+import { createNoSubstitutionTemplateLiteral, isStringTextContainingNode } from "typescript"
 import React, { useState } from "react"
 
 const HandleChange = (props: number, props2: number, info: any, info2: boolean, info3: any): void => {
-    //石を置けるかどうかの判定
-    let changeCell: any[] = []
-    let forChangeCell: any[] = []
-    const column = Number(props)
-    const row = Number(props2)
-    let diagonalCounter: any = 0
-    let stringed: string
-
+    switch (info.isEdit) {
+        case 0: cellChecker();
+        break;
+        case 1: console.log(info.isEdit);
+        break;
+        case 2: console.log(info.isEdit);
+        break;
+    }
+    
     function cellChecker() {
+        //石を置けるかどうかの判定
+        let changeCell: any[] = []
+        let forChangeCell: any[] = []
+        const column = Number(props)
+        const row = Number(props2)
+        let diagonalCounter: any = 0
+        let stringed: string
         //例外の処理
         if (info.squares[column][row] !== " ") {
             return
@@ -276,14 +284,14 @@ const HandleChange = (props: number, props2: number, info: any, info2: boolean, 
             squares: newSquares,
             history: history,
             historyCount: historyCount,
-            isWhite: !info2
+            isWhite: !info2,
+            isCleaned: false
         })
         
         changeCell = []
         console.log(history)
         console.log(historyCount)
     }
-    cellChecker()
 }
 export default HandleChange;
 
