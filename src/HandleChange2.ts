@@ -1,5 +1,4 @@
 import { createNoSubstitutionTemplateLiteral, isStringTextContainingNode } from "typescript"
-import React, { useState } from "react"
 
 const HandleChange = (props: number, props2: number, info: any, info2: boolean, info3: any): void => {
     switch (info.isEdit) {
