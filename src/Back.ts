@@ -1,5 +1,6 @@
 import { AnyAaaaRecord } from "dns"
 import React from "react"
+import { isWhiteSpaceLike } from "typescript";
 
 
 
@@ -22,7 +23,8 @@ export const back = (props: any) => {
     props.setState({
         squares: back,
         historyCount: historyCount,
-        history: history
+        history: history,
+        isWhite: !props.state.isWhite,
     })
     if (props.state.isEdit === true) {
         props.setState({
