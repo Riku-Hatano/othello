@@ -1,10 +1,11 @@
 import { createNoSubstitutionTemplateLiteral, isStringTextContainingNode } from "typescript"
+import { putBlack, putBlack2 } from "./EditBoard";
 
 const HandleChange = (props: number, props2: number, info: any, info2: boolean, info3: any): void => {
     switch (info.isEdit) {
         case 0: cellChecker();
         break;
-        case 1: console.log(info.isEdit);
+        case 1: putBlack2(props, props2, info3);
         break;
         case 2: console.log(info.isEdit);
         break;
