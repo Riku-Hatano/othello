@@ -3,8 +3,8 @@ import Squares from "./Squares";
 import "./App.css";
 import HandleChange from "./HandleChange2";
 import { next, back } from "./Back"
-import { putBlack, putWhite, completeEdit, clearCells } from "./EditBoard"
-import { editableInputTypes } from "@testing-library/user-event/dist/utils";
+import { putBlack, putWhite, completeEdit } from "./EditBoard";
+import { clearCells } from "./ClearCells";
 
 type Props = {
 }
@@ -45,9 +45,10 @@ class Board extends React.Component<Props, State> {
                     [" ", " ", " ", " ", " ", " ", " ", " "]  
                 ]
             ],
-            historyIsWhite: [
-                true
-            ],
+            // historyIsWhite: [
+            //     true
+            // ],
+            historyIsWhite: true,
             historyCount: 0,
             isWhite: true,
             isEdit: 0,

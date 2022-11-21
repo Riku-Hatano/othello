@@ -1,12 +1,13 @@
 import { createNoSubstitutionTemplateLiteral, isStringTextContainingNode } from "typescript"
+import { putBlack, putBlack2, putWhite2 } from "./EditBoard";
 
 const HandleChange = (props: number, props2: number, info: any, info2: boolean, info3: any): void => {
     switch (info.isEdit) {
         case 0: cellChecker();
         break;
-        case 1: console.log(info.isEdit);
+        case 1: putBlack2(props, props2, info3)
         break;
-        case 2: console.log(info.isEdit);
+        case 2: putWhite2(props, props2, info3)
         break;
     }
     
@@ -16,6 +17,8 @@ const HandleChange = (props: number, props2: number, info: any, info2: boolean, 
         let forChangeCell: any[] = []
         const column = Number(props)
         const row = Number(props2)
+        //普通にcolumnとrowがプロパゲートされた段階で文字列だからNumber()で数字に直す必要がある。
+        //だからcolumn: nubmer = propsではエラーが出る。
         let diagonalCounter: any = 0
         let stringed: string
         //例外の処理
