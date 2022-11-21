@@ -45,9 +45,6 @@ class Board extends React.Component<Props, State> {
                     [" ", " ", " ", " ", " ", " ", " ", " "]  
                 ]
             ],
-            // historyIsWhite: [
-            //     true
-            // ],
             historyIsWhite: true,
             historyCount: 0,
             isWhite: true,

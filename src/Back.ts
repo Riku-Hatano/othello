@@ -23,6 +23,7 @@ export const back = (props: any) => {
             history: history,
             isWhite: !props.state.isWhite,
         })
+        console.log(props.state.history)
     } else {
         console.log(`number is false ${props.state.isEdit}`)
         props.setState({
@@ -30,6 +31,7 @@ export const back = (props: any) => {
             historyCount: historyCount,
             history: history
         })
+        console.log(props.state.history)
     }
         
 }
