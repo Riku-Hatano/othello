@@ -1,9 +1,3 @@
-import { AnyAaaaRecord } from "dns"
-import React from "react"
-import { isWhiteSpaceLike } from "typescript";
-
-
-
 let a = 0;
 export const next = (props: any) => {
     a++;
@@ -20,17 +14,23 @@ export const back = (props: any) => {
     const back = props.state.history[historyCount]
     const history = props.state.history
     history.pop()
-    props.setState({
-        squares: back,
-        historyCount: historyCount,
-        history: history,
-        isWhite: !props.state.isWhite,
-    })
-    if (props.state.isEdit === true) {
+
+    if (props.state.isEdit === 0) {
+        console.log(`number is ${props.state.isEdit}`)
         props.setState({
-            isWhite: !props.state.isWhite
+            squares: back,
+            historyCount: historyCount,
+            history: history,
+            isWhite: !props.state.isWhite,
+        })
+    } else {
+        console.log(`number is false ${props.state.isEdit}`)
+        props.setState({
+            squares: back,
+            historyCount: historyCount,
+            history: history
         })
     }
-    console.log(props.state.history)
+        
 }
 

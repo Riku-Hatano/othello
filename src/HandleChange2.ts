@@ -17,8 +17,8 @@ const HandleChange = (props: number, props2: number, info: any, info2: boolean, 
         let forChangeCell: any[] = []
         const column = Number(props)
         const row = Number(props2)
-        // const column: number = props
-        // const row: number = props2
+        //普通にcolumnとrowがプロパゲートされた段階で文字列だからNumber()で数字に直す必要がある。
+        //だからcolumn: nubmer = propsではエラーが出る。
         let diagonalCounter: any = 0
         let stringed: string
         //例外の処理
