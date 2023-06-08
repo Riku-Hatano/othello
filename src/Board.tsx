@@ -3,7 +3,7 @@ import Squares from "./Squares";
 import "./App.css";
 import HandleChange from "./HandleChange2";
 import { next, back } from "./Back"
-import { putBlack, putWhite, completeEdit } from "./EditBoard";
+import { switchToPubBlackMode, switchToPutWhiteMode, completeEdit } from "./EditBoard";
 import { clearCells } from "./ClearCells";
 
 type Props = {
@@ -279,8 +279,8 @@ class Board extends React.Component<Props, State> {
                 <div>next turn: {this.state.isWhite ? "W" : "B"}</div>
                 {/* <button onClick={() => next(this)}>next</button> */}
                 <button onClick={() => back(this)}>back</button>
-                <button onClick={() => putBlack(this)}>putBlack</button>
-                <button onClick={() => putWhite(this)}>putWhite</button>
+                <button onClick={() => switchToPubBlackMode(this)}>putBlack</button>
+                <button onClick={() => switchToPutWhiteMode(this)}>putWhite</button>
                 <button onClick={() => completeEdit(this)}>completeEdit</button>
                 <button onClick={() => clearCells(this)}>clearCells</button>
             </div>

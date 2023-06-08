@@ -1,10 +1,11 @@
-export const putBlack = (props: any) => {
+export const switchToPubBlackMode = (props: any) => {
+    console.log("put black1")
     props.setState({
         isEdit: 1
     })
 }
 
-export const putBlack2 = (cell1: number, cell2: number, props: any) => {
+export const putBlack = (cell1: number, cell2: number, props: any) => {
     if (props.state.squares[cell1][cell2] !== " ") {
         return
     }
@@ -25,13 +26,13 @@ export const putBlack2 = (cell1: number, cell2: number, props: any) => {
     console.log(historyCount)
 }
 
-export const putWhite = (props: any) => {
+export const switchToPutWhiteMode = (props: any) => {
     props.setState({
         isEdit: 2
     })
 }
 
-export const putWhite2 = (cell1: number, cell2: number, props: any) => {
+export const putWhite = (cell1: number, cell2: number, props: any) => {
     if (props.state.squares[cell1][cell2] !== " ") {
         return
     }

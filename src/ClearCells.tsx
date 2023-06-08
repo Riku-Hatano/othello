@@ -1,5 +1,3 @@
-import react from "react";
-
 export const clearCells = (props: any) => {
     if (props.state.isCleaned === true) {
         return
