@@ -1,7 +1,7 @@
 import React from "react"
 import Squares from "./Squares";
 import "./App.css";
-import HandleChange from "./HandleChange2";
+import HandleChange from "./HandleChange";
 import { next, back } from "./Back"
 import { switchToPubBlackMode, switchToPutWhiteMode, completeEdit } from "./EditBoard";
 import { clearCells } from "./ClearCells";
