@@ -1,6 +1,7 @@
 import { putBlack, putWhite } from "./EditBoard";
 
 const HandleChange = (props: number, props2: number, info: any, info2: boolean, info3: any): void => {
+    console.log(info.isEdit)
     switch (info.isEdit) {
         case 0: cellChecker();
         break;

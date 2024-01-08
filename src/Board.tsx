@@ -67,7 +67,8 @@ class Board extends React.Component<Props, State> {
     }
     render() {
         return(
-            <div className="body">
+            <React.Fragment>
+                <div className="body">
                 <div className="squareParent">
                     <div className="squareChild">
                         {this.squareMaker(0, 0, this.state.squares[0][0])}
@@ -284,6 +285,8 @@ class Board extends React.Component<Props, State> {
                 <button onClick={() => completeEdit(this)}>completeEdit</button>
                 <button onClick={() => clearCells(this)}>clearCells</button>
             </div>
+            <button onClick={() => console.log(this.state)}>check</button>
+            </React.Fragment>
         )
     }
 }
