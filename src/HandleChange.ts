@@ -3,11 +3,11 @@ import { putBlack, putWhite } from "./EditBoard";
 const HandleChange = (props: number, props2: number, info: any, info2: boolean, info3: any): void => {
     console.log(info.isEdit)
     switch (info.isEdit) {
-        case 0: cellChecker();
+        case "PLAY": cellChecker();
         break;
-        case 1: putBlack(props, props2, info3)
+        case "EDIT_BLACK": putBlack(props, props2, info3)
         break;
-        case 2: putWhite(props, props2, info3)
+        case "EDIT_WHITE": putWhite(props, props2, info3)
         break;
     }
     

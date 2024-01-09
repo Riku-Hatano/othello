@@ -15,7 +15,7 @@ export const back = (props: any) => {
     const history = props.state.history
     history.pop()
 
-    if (props.state.isEdit === 0) {
+    if (props.state.isEdit === "PLAY") {
         console.log(`number is ${props.state.isEdit}`)
         props.setState({
             squares: back,

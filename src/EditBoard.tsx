@@ -1,7 +1,7 @@
 export const switchToPubBlackMode = (props: any) => {
     console.log("put black1")
     props.setState({
-        isEdit: 1
+        isEdit: "EDIT_BLACK"
     })
 }
 
@@ -28,7 +28,7 @@ export const putBlack = (cell1: number, cell2: number, props: any) => {
 
 export const switchToPutWhiteMode = (props: any) => {
     props.setState({
-        isEdit: 2
+        isEdit: "EDIT_WHITE"
     })
 }
 
@@ -56,7 +56,7 @@ export const putWhite = (cell1: number, cell2: number, props: any) => {
 
 export const completeEdit = (props: any) => {
     props.setState({
-        isEdit: 0
+        isEdit: "PLAY"
     })
 }
 
