@@ -2,10 +2,13 @@ import React from "react"
 import Squares from "./Squares";
 import "./App.css";
 import HandleChange from "./HandleChange";
-import { next, back } from "./Back"
+import { back } from "./Back"
 import { switchToPubBlackMode, switchToPutWhiteMode, completeEdit } from "./EditBoard";
 import { clearCells } from "./ClearCells";
 import { boardSize, emptyBoard } from "./initial";
+import { ThemeButton } from "./components/Button";
+import { Grid, Typography } from "@mui/material";
+import { theme } from "./theme";
 
 type Props = {
 }
@@ -19,7 +22,6 @@ type State = {
     historyCount: any
 }
 const bs: number[][] = boardSize();
-
 class Board extends React.Component<Props, State> {
     constructor(props: Props) {
         super(props);
@@ -69,35 +71,41 @@ class Board extends React.Component<Props, State> {
     render() {
         return(
             <React.Fragment>
-                <div className="body">
+                <Grid 
+                    container
+                    spacing={.5}
+                    sx={{backgroundColor: "black"}}
+                >
                     {
                         bs.map((row, idx) => {
                             return (
-                                <div className="squareParent">
+                                <Grid container item spacing={.5}>
+                                {/* <div className="squareParent"> */}
                                     {
                                         row.map((col) => {
                                             return (
-                                                <div className="squareChild">
+                                                <Grid item>
+                                                {/* <div className="squareChild"> */}
                                                     {this.squareMaker(idx, col, this.state.squares[idx][col])}
-                                                </div>
+                                                </Grid>
                                             )
                                         })
                                     }
-                                </div>
+                                </Grid>
                             )
                         })
                     }
-                </div>
-                <div>
-                    <button onClick={() => console.log(this.state)}>check</button>
-                    <button onClick={() => clearCells(this)}>clear</button>
-                    <button onClick={() => back(this)}>back</button>
-                    <button onClick={() => switchToPubBlackMode(this)}>put black</button>
-                    <button onClick={() => switchToPutWhiteMode(this)}>put white</button>
-                    <button onClick={() => completeEdit(this)}>complete edit</button>
-                </div>
-                <p>next turn: {this.state.isWhite ? "white" : "black"}</p>
-                <p>mode: {this.state.isEdit}</p>
+                </Grid>
+                <Grid>
+                    <ThemeButton onClick={() => console.log(this.state)}>check</ThemeButton>
+                    <ThemeButton onClick={() => clearCells(this)}>clear</ThemeButton>
+                    <ThemeButton onClick={() => back(this)}>back</ThemeButton>
+                    <ThemeButton onClick={() => switchToPubBlackMode(this)}>put black</ThemeButton>
+                    <ThemeButton onClick={() => switchToPutWhiteMode(this)}>put white</ThemeButton>
+                    <ThemeButton onClick={() => completeEdit(this)}>complete edit</ThemeButton>
+                </Grid>
+                <Typography>next turn: {this.state.isWhite ? "white" : "black"}</Typography>
+                <Typography>mode: {this.state.isEdit}</Typography>
             </React.Fragment>
         )
     }

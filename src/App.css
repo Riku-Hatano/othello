@@ -3,7 +3,7 @@
 }
 .squareParent {
   display: flex;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
   height: 31px;
   width: 258px;
   background-color: black;
