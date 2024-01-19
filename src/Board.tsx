@@ -1,5 +1,5 @@
 import React from "react"
-import Squares from "./Squares";
+import { Cell } from "./Squares";
 import "./App.css";
 import HandleChange from "./HandleChange";
 import { back } from "./Back"
@@ -57,37 +57,32 @@ class Board extends React.Component<Props, State> {
     }
     squareMaker(props: number, props2: number, props3: any): any {
         return(
-            <Squares
-            id={props}
-            id2={props2}
-            id3={props3}
-            info={this.state}
-            info2={this.state.isWhite}
-            info3={this}
-            onClick={HandleChange}
+            <Cell
+                id={props}
+                id2={props2}
+                id3={props3}
+                info={this.state}
+                info2={this.state.isWhite}
+                info3={this}
+                onClick={HandleChange}
             />
         )
     }
     render() {
         return(
             <React.Fragment>
-                <Grid 
+                <Grid
                     container
-                    spacing={.5}
-                    sx={{backgroundColor: "black"}}
+                    spacing={theme.spacing(1)}
                 >
                     {
                         bs.map((row, idx) => {
                             return (
-                                <Grid container item spacing={.5}>
-                                {/* <div className="squareParent"> */}
+                                <Grid container item sx={{backgroundColor: "black", columnGap: theme.spacing(1)}}>
                                     {
                                         row.map((col) => {
                                             return (
-                                                <Grid item>
-                                                {/* <div className="squareChild"> */}
-                                                    {this.squareMaker(idx, col, this.state.squares[idx][col])}
-                                                </Grid>
+                                                this.squareMaker(idx, col, this.state.squares[idx][col])
                                             )
                                         })
                                     }
