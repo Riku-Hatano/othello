@@ -8,7 +8,7 @@ import { clearCells } from "./ClearCells";
 import { boardSize, emptyBoard } from "./initial";
 import { ThemeButton } from "./components/Button";
 import { Grid, Typography } from "@mui/material";
-import { theme } from "./theme";
+import theme from "./theme";
 
 type Props = {
 }

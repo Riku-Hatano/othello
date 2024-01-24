@@ -1,6 +1,6 @@
-import { createTheme } from "@mui/material";
+import { createTheme } from "@mui/material/styles";
 
-export const theme = createTheme({
+const theme = createTheme({
     palette: {
         primary: {
             main: "#000",
@@ -13,11 +13,29 @@ export const theme = createTheme({
             md: 800,
             lg: 1000,
             xl: 1200,
-            // mobile: 0,
-            // tablet: 800,
-            // laptop: 1000,
-            // desktop: 1200,
-        }        
+        },
     },
     spacing: [0, 1, 2, 4, 8],
 })
+
+// const theme = createTheme({
+//   palette: {
+//     primary: {
+//       main: "#7c955d",
+//     },
+//     secondary: {
+//         main: "#eeeed5"
+//     },
+//   },
+//   breakpoints: {
+//     values: {
+//         xs: 0,
+//         sm: 500,
+//         md: 900,
+//         lg: 1200,
+//         xl: 1530,
+//     }
+//   },
+// });
+
+export default theme;
