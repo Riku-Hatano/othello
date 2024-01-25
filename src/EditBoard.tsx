@@ -22,8 +22,6 @@ export const putBlack = (cell1: number, cell2: number, props: any) => {
     historyCount: historyCount,
     history: history,
   });
-  console.log(history);
-  console.log(historyCount);
 };
 
 export const switchToPutWhiteMode = (props: any) => {
@@ -49,8 +47,6 @@ export const putWhite = (cell1: number, cell2: number, props: any) => {
     historyCount: historyCount,
     history: history,
   });
-  console.log(history);
-  console.log(historyCount);
 };
 
 export const completeEdit = (props: any) => {

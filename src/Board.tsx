@@ -1,6 +1,5 @@
 import React from "react";
 import { Cell } from "./Squares";
-import "./App.css";
 import HandleChange from "./HandleChange";
 import { back } from "./Back";
 import {
@@ -74,13 +73,17 @@ class Board extends React.Component<Props, State> {
   render() {
     return (
       <React.Fragment>
-        <Grid container spacing={theme.spacing(1)}>
+        <Grid
+          container
+          spacing={theme.spacing(1)}
+          sx={{ backgroundColor: "black", paddingY: "5vh" }}
+        >
           {bs.map((row, idx) => {
             return (
               <Grid
                 container
                 item
-                sx={{ backgroundColor: "black", columnGap: theme.spacing(1) }}
+                sx={{ columnGap: theme.spacing(1), justifyContent: "center" }}
               >
                 {row.map((col) => {
                   return this.squareMaker(
@@ -94,6 +97,12 @@ class Board extends React.Component<Props, State> {
           })}
         </Grid>
         <Grid>
+          <Typography variant="h4" sx={{ margin: theme.spacing(4) }}>
+            next turn: {this.state.isWhite ? "white" : "black"}
+          </Typography>
+          <Typography variant="h6" sx={{ margin: theme.spacing(4) }}>
+            mode: {this.state.isEdit}
+          </Typography>
           <ThemeButton onClick={() => console.log(this.state)}>
             check
           </ThemeButton>
@@ -105,14 +114,20 @@ class Board extends React.Component<Props, State> {
           <ThemeButton onClick={() => switchToPutWhiteMode(this)}>
             put white
           </ThemeButton>
+          <ThemeButton
+            onClick={() =>
+              this.setState((prev) => ({
+                ...prev,
+                isWhite: !this.state.isWhite,
+              }))
+            }
+          >
+            Change turn
+          </ThemeButton>
           <ThemeButton onClick={() => completeEdit(this)}>
             complete edit
           </ThemeButton>
         </Grid>
-        <Typography>
-          next turn: {this.state.isWhite ? "white" : "black"}
-        </Typography>
-        <Typography>mode: {this.state.isEdit}</Typography>
       </React.Fragment>
     );
   }

@@ -1,0 +1,4 @@
+{
+  "editor.defaultFormatter": "esbenp.prettier-vscode", // フォーマッターをPrettierにする
+  "editor.formatOnSave": true // ファイル保存時にフォーマットを実行 この記事参照。https://zenn.dev/big_tanukiudon/articles/c1ab3dba7ba111
+}

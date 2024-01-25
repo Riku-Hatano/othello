@@ -1,4 +1,3 @@
-import "./App.css";
 import { Grid } from "@mui/material";
 
 const cellSize = {
