@@ -1,9 +1,6 @@
-import './App.css';
-import Board from "./Board"
+import Board from "./Board";
 function App() {
-  return (
-    <Board /> 
-  )
+  return <Board />;
 }
 
 export default App;
