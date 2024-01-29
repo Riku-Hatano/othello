@@ -89,7 +89,7 @@ class Board extends React.Component<Props, State> {
                   return this.squareMaker(
                     idx,
                     col,
-                    this.state.squares[idx][col],
+                    this.state.squares[idx][col]
                   );
                 })}
               </Grid>
@@ -127,6 +127,11 @@ class Board extends React.Component<Props, State> {
           <ThemeButton onClick={() => completeEdit(this)}>
             complete edit
           </ThemeButton>
+          {this.state.isEdit !== "PLAY" && (
+            <Typography variant="h6">
+              To quit edit mode, please click "complete edit" button
+            </Typography>
+          )}
         </Grid>
       </React.Fragment>
     );
