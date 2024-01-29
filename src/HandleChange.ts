@@ -5,7 +5,7 @@ const HandleChange = (
   props2: number,
   info: any,
   info2: boolean,
-  info3: any,
+  info3: any
 ): void => {
   console.log(info.isEdit);
   switch (info.isEdit) {
@@ -21,6 +21,13 @@ const HandleChange = (
   }
 
   function cellChecker() {
+    console.log({
+      props: props,
+      props2: props2,
+      info: info,
+      info2: info2,
+      info3: info3,
+    });
     //石を置けるかどうかの判定
     let changeCell: any[] = [];
     let forChangeCell: any[] = [];
@@ -50,6 +57,11 @@ const HandleChange = (
           changeCell.push(column + i + " " + row);
         }
       }
+      console.log({
+        forChangeCell: forChangeCell,
+        column: column,
+        row: row,
+      });
       forChangeCell = [];
       //右がひっくり返るか
       for (let i = props2; i < 8; i++) {
@@ -383,4 +395,5 @@ const HandleChange = (
     console.log(historyCount);
   }
 };
+
 export default HandleChange;
